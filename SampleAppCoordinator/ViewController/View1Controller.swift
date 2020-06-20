@@ -41,10 +41,12 @@ final class View1Controller: UIViewController {
     self.view.addSubview(btn)
 
     btn.translatesAutoresizingMaskIntoConstraints = false
-    btn.widthAnchor.constraint(equalToConstant: 100).isActive = true
-    btn.heightAnchor.constraint(equalToConstant: 100).isActive = true
-    btn.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1.0).isActive = true
-    btn.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1.0).isActive = true
+    NSLayoutConstraint.activate([
+      btn.widthAnchor.constraint(equalToConstant: 100),
+      btn.heightAnchor.constraint(equalToConstant: 100),
+      btn.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1.0),
+      btn.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1.0)
+    ])
     btn.addTarget(self, action: #selector(tapButtonSelector), for: .touchUpInside)
   }
 

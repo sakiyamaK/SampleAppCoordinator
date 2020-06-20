@@ -20,6 +20,8 @@
 		B6E08C552482CC1C002A71C2 /* View2Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E08C542482CC1C002A71C2 /* View2Coordinator.swift */; };
 		B6E08C5724838632002A71C2 /* View3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E08C5624838632002A71C2 /* View3Controller.swift */; };
 		B6E08C5924838651002A71C2 /* View3Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E08C5824838651002A71C2 /* View3Coordinator.swift */; };
+		B6E7D1D2249E74A700D84333 /* View4Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E7D1D1249E74A700D84333 /* View4Controller.swift */; };
+		B6E7D1D4249E758200D84333 /* View4Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E7D1D3249E758200D84333 /* View4Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		B6E08C542482CC1C002A71C2 /* View2Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View2Coordinator.swift; sourceTree = "<group>"; };
 		B6E08C5624838632002A71C2 /* View3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View3Controller.swift; sourceTree = "<group>"; };
 		B6E08C5824838651002A71C2 /* View3Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View3Coordinator.swift; sourceTree = "<group>"; };
+		B6E7D1D1249E74A700D84333 /* View4Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View4Controller.swift; sourceTree = "<group>"; };
+		B6E7D1D3249E758200D84333 /* View4Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View4Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 				B6E08C502482C60D002A71C2 /* View1Coordinator.swift */,
 				B6E08C542482CC1C002A71C2 /* View2Coordinator.swift */,
 				B6E08C5824838651002A71C2 /* View3Coordinator.swift */,
+				B6E7D1D3249E758200D84333 /* View4Coordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				B6E08C4E2482C570002A71C2 /* View1Controller.swift */,
 				B6E08C522482CA7C002A71C2 /* View2Controller.swift */,
 				B6E08C5624838632002A71C2 /* View3Controller.swift */,
+				B6E7D1D1249E74A700D84333 /* View4Controller.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -292,7 +298,9 @@
 				B6E08C4F2482C570002A71C2 /* View1Controller.swift in Sources */,
 				B6E08C532482CA7C002A71C2 /* View2Controller.swift in Sources */,
 				B6E08C5724838632002A71C2 /* View3Controller.swift in Sources */,
+				B6E7D1D2249E74A700D84333 /* View4Controller.swift in Sources */,
 				B6E08C552482CC1C002A71C2 /* View2Coordinator.swift in Sources */,
+				B6E7D1D4249E758200D84333 /* View4Coordinator.swift in Sources */,
 				B6E08C512482C60D002A71C2 /* View1Coordinator.swift in Sources */,
 				B6E08C4C2482C4F0002A71C2 /* AppCoordinator.swift in Sources */,
 				B6E08C5924838651002A71C2 /* View3Coordinator.swift in Sources */,

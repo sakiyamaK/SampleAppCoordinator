@@ -23,10 +23,16 @@ final class View2Coordinator: Coordinator {
   func start() {
     DispatchQueue.main.async {[weak self] in
       let vc = View2Controller()
-      vc.tapButton = { [weak self] in
-        guard let _self = self else { return }
-        print("\(type(of: self)): tapButton")
+      guard let _self = self else { return }
+      vc.tapButton1 = {
+        print("\(type(of: self)): tapButton1")
         let nextCoordinator = View3Coordinator(navigator: _self.navigator)
+        nextCoordinator.start()
+        _self.nextCoordinator = nextCoordinator
+      }
+      vc.tapButton2 = {
+        print("\(type(of: self)): tapButton2")
+        let nextCoordinator = View4Coordinator(navigator: _self.navigator)
         nextCoordinator.start()
         _self.nextCoordinator = nextCoordinator
       }

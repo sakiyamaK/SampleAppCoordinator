@@ -1,14 +1,14 @@
 //
-//  View3Controller.swift
+//  View4Controller.swift
 //  SampleAppCoordinator
 //
-//  Created by sakiyamaK on 2020/05/31.
+//  Created by sakiyamaK on 2020/06/21.
 //  Copyright © 2020 sakiyamaK. All rights reserved.
 //
 
 import UIKit
 
-final class View3Controller: UIViewController {
+final class View4Controller: UIViewController {
 
   var tapButton: (()->Void)? = nil
 
@@ -19,7 +19,7 @@ final class View3Controller: UIViewController {
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     print("\(type(of: self)): \(#function)")
-    self.view.backgroundColor = .systemPink
+    self.view.backgroundColor = .systemTeal
   }
 
   required init?(coder: NSCoder) {

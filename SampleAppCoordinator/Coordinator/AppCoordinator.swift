@@ -21,9 +21,8 @@ final class AppCoordinator: Coordinator {
   init(window: UIWindow) {
     self.window = window
     rootTabbarController = .init()
-    let rootNavigator = UINavigationController()
+    rootNavigator = .init()
     rootTabbarController.viewControllers = [rootNavigator]
-    self.rootNavigator = rootNavigator
   }
 
   func start() {
