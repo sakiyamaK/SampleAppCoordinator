@@ -23,6 +23,9 @@ final class LoginedView3Coordinator: Coordinator {
   func start() {
     DispatchQueue.main.async {[weak self] in
       let vc = LoginedView3Controller()
+      vc.tapButton = {
+//        print("tapButton")
+      }
       self?.navigator.pushViewController(vc, animated: true)
     }
   }

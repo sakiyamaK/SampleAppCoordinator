@@ -8,14 +8,22 @@
 
 import UIKit
 
+//ログイン/ログアウトが発生したときにAppCoordinatorのstartを再度呼ぶための通知
 extension NSNotification.Name {
   static let reStart = Notification.Name("reStart")
+}
+
+extension UserDefaults {
+  private var loginedKey: String { "logined" }
+  var isLogined: Bool {
+    set { self.set(newValue, forKey: loginedKey) }
+    get { self.bool(forKey: loginedKey) }
+  }
 }
 
 final class AppCoordinator: Coordinator {
   private let window: UIWindow
 
-  private(set) var root: UIViewController?
   private var logoutedNavigator: UINavigationController?
 
   private var rootTabbarController: UITabBarController?
@@ -34,23 +42,29 @@ final class AppCoordinator: Coordinator {
   }
 
   func start() {
-    if UserDefaults.standard.bool(forKey: "logined") {
+    if UserDefaults.standard.isLogined {
       print("ログイン")
       rootTabbarController = .init()
-      rootNavigator = .init()
+      let _rootNavigator = UINavigationController()
       window.rootViewController = rootTabbarController
-      rootTabbarController!.setViewControllers([rootNavigator!], animated: false)
-      let nextCoordinator = LoginedView1Coordinator.init(navigator: rootNavigator!)
+      rootTabbarController!.setViewControllers([_rootNavigator], animated: false)
+      let nextCoordinator = LoginedView1Coordinator.init(navigator: _rootNavigator)
       self.nextCoordinator = nextCoordinator
       nextCoordinator.start()
+      //メモリーリーク対策
+      rootNavigator?.popToRootViewController(animated: false)
+      rootNavigator = _rootNavigator
     }
     else {
       print("ログアウト")
-      logoutedNavigator = .init()
-      window.rootViewController = logoutedNavigator!
-      let nextCoordinator = LogoutView1Coordinator.init(navigator: logoutedNavigator!)
+      let _logoutedNavigator = UINavigationController()
+      window.rootViewController = _logoutedNavigator
+      let nextCoordinator = LogoutView1Coordinator.init(navigator: _logoutedNavigator)
       self.nextCoordinator = nextCoordinator
       nextCoordinator.start()
+      //メモリーリーク対策
+      logoutedNavigator?.popToRootViewController(animated: false)
+      logoutedNavigator = _logoutedNavigator
     }
     window.makeKeyAndVisible()
   }

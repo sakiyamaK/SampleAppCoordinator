@@ -24,7 +24,7 @@ final class LoginedView4Coordinator: Coordinator {
     DispatchQueue.main.async {[weak self] in
       let vc = LoginedView4Controller()
       vc.tapLogoutButton = {
-        UserDefaults.standard.set(false, forKey: "logined")
+        UserDefaults.standard.isLogined = false
         NotificationCenter.default.post(name: .reStart, object: nil)
       }
       self?.navigator.pushViewController(vc, animated: true)

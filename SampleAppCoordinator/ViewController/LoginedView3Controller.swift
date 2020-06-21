@@ -18,7 +18,7 @@ final class LoginedView3Controller: UIViewController {
 
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    print("\(type(of: self)): \(#function)")
+//    print("\(type(of: self)): \(#function)")
     self.view.backgroundColor = .white
   }
 
@@ -26,19 +26,14 @@ final class LoginedView3Controller: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
 
-  override func loadView() {
-    super.loadView()
-    print("\(type(of: self)): \(#function)")
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("\(type(of: self)): \(#function)")
+//    print("\(type(of: self)): \(#function)")
 
     navigationItem.title = String(describing: type(of: self))
 
     let btn = UIButton.init()
-    btn.setTitle("次へ", for: .normal)
+    btn.setTitle("終わり", for: .normal)
     btn.setTitleColor(.black, for: .normal)
 
     self.view.addSubview(btn)
