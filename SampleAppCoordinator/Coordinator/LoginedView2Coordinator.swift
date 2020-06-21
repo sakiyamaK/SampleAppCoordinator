@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class View2Coordinator: Coordinator {
+final class LoginedView2Coordinator: Coordinator {
   private let navigator: UINavigationController
   private var nextCoordinator: Coordinator?
 
@@ -22,17 +22,17 @@ final class View2Coordinator: Coordinator {
 
   func start() {
     DispatchQueue.main.async {[weak self] in
-      let vc = View2Controller()
+      let vc = LoginedView2Controller()
       guard let _self = self else { return }
       vc.tapButton1 = {
         print("\(type(of: self)): tapButton1")
-        let nextCoordinator = View3Coordinator(navigator: _self.navigator)
+        let nextCoordinator = LoginedView3Coordinator(navigator: _self.navigator)
         nextCoordinator.start()
         _self.nextCoordinator = nextCoordinator
       }
       vc.tapButton2 = {
         print("\(type(of: self)): tapButton2")
-        let nextCoordinator = View4Coordinator(navigator: _self.navigator)
+        let nextCoordinator = LoginedView4Coordinator(navigator: _self.navigator)
         nextCoordinator.start()
         _self.nextCoordinator = nextCoordinator
       }

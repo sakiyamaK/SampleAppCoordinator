@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class View2Controller: UIViewController {
+final class LoginedView2Controller: UIViewController {
 
   var tapButton1: (()->Void)? = nil
   var tapButton2: (()->Void)? = nil
@@ -20,7 +20,7 @@ final class View2Controller: UIViewController {
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     print("\(type(of: self)): \(#function)")
-    self.view.backgroundColor = .green
+    self.view.backgroundColor = .white
   }
 
   required init?(coder: NSCoder) {
@@ -36,9 +36,12 @@ final class View2Controller: UIViewController {
     super.viewDidLoad()
     print("\(type(of: self)): \(#function)")
 
+    navigationItem.title = String(describing: type(of: self))
+
     do {
       let btn = UIButton.init()
       btn.setTitle("次へ3", for: .normal)
+      btn.setTitleColor(.black, for: .normal)
 
       self.view.addSubview(btn)
 
@@ -46,25 +49,24 @@ final class View2Controller: UIViewController {
       NSLayoutConstraint.activate([
         btn.widthAnchor.constraint(equalToConstant: 100),
         btn.heightAnchor.constraint(equalToConstant: 100),
-        btn.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1.0),
-        btn.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1.0)
+        NSLayoutConstraint(item: btn, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0),
+        NSLayoutConstraint(item: btn, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0)
       ])
       btn.addTarget(self, action: #selector(tapButton1Selector), for: .touchUpInside)
     }
     do {
       let btn = UIButton.init()
       btn.setTitle("次へ4", for: .normal)
+      btn.setTitleColor(.black, for: .normal)
 
       self.view.addSubview(btn)
 
       btn.translatesAutoresizingMaskIntoConstraints = false
-      let centerYAnchor = btn.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1.0)
-      centerYAnchor.constant = 100
       NSLayoutConstraint.activate([
-        btn.widthAnchor.constraint(equalToConstant: 100),
+        btn.widthAnchor.constraint(greaterThanOrEqualToConstant: 100),
         btn.heightAnchor.constraint(equalToConstant: 100),
-        btn.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1.0),
-        centerYAnchor
+        NSLayoutConstraint(item: btn, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0),
+        NSLayoutConstraint(item: btn, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 100),
       ])
       btn.addTarget(self, action: #selector(tapButton2Selector), for: .touchUpInside)
     }

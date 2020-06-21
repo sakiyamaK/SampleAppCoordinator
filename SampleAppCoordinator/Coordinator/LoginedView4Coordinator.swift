@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class View4Coordinator: Coordinator {
+final class LoginedView4Coordinator: Coordinator {
   private let navigator: UINavigationController
   private var nextCoordinator: Coordinator?
 
@@ -22,7 +22,11 @@ final class View4Coordinator: Coordinator {
 
   func start() {
     DispatchQueue.main.async {[weak self] in
-      let vc = View4Controller()
+      let vc = LoginedView4Controller()
+      vc.tapLogoutButton = {
+        UserDefaults.standard.set(false, forKey: "logined")
+        NotificationCenter.default.post(name: .reStart, object: nil)
+      }
       self?.navigator.pushViewController(vc, animated: true)
     }
   }

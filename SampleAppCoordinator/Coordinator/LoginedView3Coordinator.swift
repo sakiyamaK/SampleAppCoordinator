@@ -1,5 +1,5 @@
 //
-//  View1Coordinator.swift
+//  View3Coordinator.swift
 //  SampleAppCoordinator
 //
 //  Created by sakiyamaK on 2020/05/31.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class View1Coordinator: Coordinator {
+final class LoginedView3Coordinator: Coordinator {
   private let navigator: UINavigationController
   private var nextCoordinator: Coordinator?
 
@@ -22,14 +22,7 @@ final class View1Coordinator: Coordinator {
 
   func start() {
     DispatchQueue.main.async {[weak self] in
-      let vc = View1Controller()
-      vc.tapButton = { [weak self] in
-        guard let _self = self else { return }
-        print("\(type(of: self)): tapButton")
-        let nextCoordinator = View2Coordinator(navigator: _self.navigator)
-        nextCoordinator.start()
-        _self.nextCoordinator = nextCoordinator
-      }
+      let vc = LoginedView3Controller()
       self?.navigator.pushViewController(vc, animated: true)
     }
   }
