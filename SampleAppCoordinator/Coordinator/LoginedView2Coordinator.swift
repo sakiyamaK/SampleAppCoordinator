@@ -21,22 +21,20 @@ final class LoginedView2Coordinator: Coordinator {
   }
 
   func start() {
-    DispatchQueue.main.async {[weak self] in
-      let vc = LoginedView2Controller()
-      guard let _self = self else { return }
-      vc.tapButton1 = {
-//        print("\(type(of: self)): tapButton1")
-        let nextCoordinator = LoginedView3Coordinator(navigator: _self.navigator)
-        nextCoordinator.start()
-        _self.nextCoordinator = nextCoordinator
-      }
-      vc.tapButton2 = {
-//        print("\(type(of: self)): tapButton2")
-        let nextCoordinator = LoginedView4Coordinator(navigator: _self.navigator)
-        nextCoordinator.start()
-        _self.nextCoordinator = nextCoordinator
-      }
-      self?.navigator.pushViewController(vc, animated: true)
+    let vc = LoginedView2Controller()
+    guard let _self = self else { return }
+    vc.tapButton1 = {
+      //        print("\(type(of: self)): tapButton1")
+      let nextCoordinator = LoginedView3Coordinator(navigator: _self.navigator)
+      nextCoordinator.start()
+      _self.nextCoordinator = nextCoordinator
     }
+    vc.tapButton2 = {
+      //        print("\(type(of: self)): tapButton2")
+      let nextCoordinator = LoginedView4Coordinator(navigator: _self.navigator)
+      nextCoordinator.start()
+      _self.nextCoordinator = nextCoordinator
+    }
+    self?.navigator.pushViewController(vc, animated: true)
   }
 }

@@ -21,13 +21,11 @@ final class LogoutView1Coordinator: Coordinator {
   }
 
   func start() {
-    DispatchQueue.main.async {[weak self] in
-      let vc = LogoutView1Controller()
-      vc.tapLoginButton = {
-        UserDefaults.standard.isLogined = true
-        NotificationCenter.default.post(name: .reStart, object: nil)
-      }
-      self?.navigator.pushViewController(vc, animated: true)
+    let vc = LogoutView1Controller()
+    vc.tapLoginButton = {
+      UserDefaults.standard.isLogined = true
+      NotificationCenter.default.post(name: .reStart, object: nil)
     }
+    self?.navigator.pushViewController(vc, animated: true)
   }
 }
